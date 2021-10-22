@@ -4,6 +4,7 @@ import express from 'express';
 import { getOneCall } from './service/open-weather';
 
 const app = express();
+const PORT = 9000;
 
 app.get('/weather', async (req, res, next) => {
     try {
@@ -14,6 +15,6 @@ app.get('/weather', async (req, res, next) => {
     }
 });
 
-app.listen(9000, () => {
-    console.log('start');
+app.listen(PORT, () => {
+    console.log(`Listening at port ${PORT}`);
 });
