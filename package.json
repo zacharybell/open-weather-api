@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/app.ts",
-    "start:dev": "nodemon ./src/app.ts"
+    "start": "node ./dist/app.js",
+    "start:dev": "nodemon ./src/app.ts",
+    "build": "tsc --outDir dist"
   },
   "author": "",
   "license": "ISC",
