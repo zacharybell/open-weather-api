@@ -9,7 +9,7 @@ import { errorHandler } from './middleware/error-handler';
 import { getOneCall } from './service/open-weather';
 
 const app = express();
-const PORT = 9000;
+const PORT = 8080;
 
 app.set('trust proxy', true);
 app.set('x-powered-by', false);
