@@ -40,11 +40,12 @@ resource "aws_iam_role" "lambda_exec_role" {
 }
 
 resource "aws_lambda_function" "onecall" {
-  filename      = "dist/bundle.zip"
-  function_name = "${local.prefix}-onecall"
-  role          = aws_iam_role.lambda_exec_role.arn
-  handler       = "app.handler"
-  runtime       = "nodejs14.x"
+  filename         = "dist/bundle.zip"
+  function_name    = "${local.prefix}-onecall"
+  role             = aws_iam_role.lambda_exec_role.arn
+  handler          = "app.handler"
+  runtime          = "nodejs14.x"
+  source_code_hash = filebase64sha256("dist/bundle.zip")
 }
 
 resource "aws_apigatewayv2_api" "main" {
