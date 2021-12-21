@@ -46,6 +46,12 @@ resource "aws_lambda_function" "onecall" {
   handler          = "app.handler"
   runtime          = "nodejs14.x"
   source_code_hash = filebase64sha256("dist/bundle.zip")
+
+  environment {
+    variables = {
+      OPEN_WEATHER_API_KEY = "${var.OPEN_WEATHER_API_KEY}"
+    }
+  }
 }
 
 resource "aws_apigatewayv2_api" "main" {
